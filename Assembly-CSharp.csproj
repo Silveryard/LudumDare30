@@ -59,12 +59,14 @@
      <Compile Include="Assets\Scripts\FeatureButtons.cs" />
      <Compile Include="Assets\Scripts\FeatureChat.cs" />
      <Compile Include="Assets\Scripts\FeatureDescription.cs" />
+     <Compile Include="Assets\Scripts\FeatureFindFriends.cs" />
      <Compile Include="Assets\Scripts\FeatureFlashGames.cs" />
      <Compile Include="Assets\Scripts\FeatureGroups.cs" />
      <Compile Include="Assets\Scripts\FeatureMobileClient.cs" />
      <Compile Include="Assets\Scripts\FeaturePhotoUpload.cs" />
      <Compile Include="Assets\Scripts\FeaturePrivacySettings.cs" />
      <Compile Include="Assets\Scripts\FeatureServerCapacity.cs" />
+     <Compile Include="Assets\Scripts\FeatureTagging.cs" />
      <Compile Include="Assets\Scripts\FeatureUserStatistics.cs" />
      <Compile Include="Assets\Scripts\FirstServer.cs" />
      <Compile Include="Assets\Scripts\IncomeUpdater.cs" />

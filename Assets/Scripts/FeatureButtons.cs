@@ -20,6 +20,8 @@ public class FeatureButtons : MonoBehaviour{
     public Button ButtonToggleGroups;
     public Button ButtonToggleServerCapacity;
     public Button ButtonToggleFlashGames;
+    public Button ButtonToggleFindFriends;
+    public Button ButtonToggleTagging;
 
     public Button ButtonAds;
     public Button ButtonChat;
@@ -30,6 +32,8 @@ public class FeatureButtons : MonoBehaviour{
     public Button ButtonGroups;
     public Button ButtonServerCapacity;
     public Button ButtonFlashGames;
+    public Button ButtonFindFriends;
+    public Button ButtonTagging;
 
     private float _oldTimeScale;
 
@@ -111,6 +115,14 @@ public class FeatureButtons : MonoBehaviour{
         if(Network.Features.Contains(FeatureFlashGames.GetInstance())) RemoveFeature(ButtonToggleFlashGames, FeatureFlashGames.GetInstance());
         else AddFeature(ButtonToggleFlashGames, FeatureFlashGames.GetInstance());
     }
+    public void BtnToggleFindFriends(){
+        if(Network.Features.Contains(FeatureFindFriends.GetInstance())) RemoveFeature(ButtonToggleFindFriends, FeatureFindFriends.GetInstance());
+        else AddFeature(ButtonToggleFindFriends, FeatureFindFriends.GetInstance());
+    }
+    public void BtnToggleTagging(){
+        if(Network.Features.Contains(FeatureTagging.GetInstance()))RemoveFeature(ButtonToggleTagging, FeatureTagging.GetInstance());
+        else AddFeature(ButtonToggleTagging, FeatureTagging.GetInstance());
+    }
 
     public void BtnAds(){
         ShowDescription("Ads", "0 / 0 to -500", "0 to -20", "Let´s place some nice Ads on your website. Your users might not love it but you need the money. Just don´t exaggerate.");
@@ -134,10 +146,16 @@ public class FeatureButtons : MonoBehaviour{
         ShowDescription("Groups", FeatureGroups.GetInstance().initialCost + " / " + FeatureGroups.GetInstance().income * -1, ""+FeatureGroups.GetInstance().SatisfactionModifier * 1000, "Wanna do a birthday party? Just add a group and everybody will be able to join. Project X is near");
     }
     public void BtnServerCapacity(){
-        ShowDescription("Server Capacity", FeatureServerCapacity.GetInstance().initialCost + " / " + FeatureServerCapacity.GetInstance().income * -1, "" + FeatureServerCapacity.GetInstance().SatisfactionModifier * 1000, "Your servers are lame! Buy some new hardware and increase your capacity by 500 users");
+        ShowDescription("Server Capacity", FeatureServerCapacity.GetInstance().initialCost + " / " + FeatureServerCapacity.GetInstance().income * -1, "" + FeatureServerCapacity.GetInstance().SatisfactionModifier * 1000, "Your servers are lame! Buy some new hardware and increase your capacity by 500 users. Can be purchased multiple times");
     }
     public void BtnFlashGames(){
         ShowDescription("Flash Games", FeatureFlashGames.GetInstance().initialCost + " / " + FeatureFlashGames.GetInstance().income * -1, "" + FeatureFlashGames.GetInstance().SatisfactionModifier * 1000, "Developing them might cost a few bucks but you added for every piece of shit a micro transaction. Weird... Your users love it");
+    }
+    public void BtnFindFriends(){
+        ShowDescription("Find Friends", FeatureFindFriends.GetInstance().initialCost + " / " + FeatureFindFriends.GetInstance().income * -1, "" + FeatureFindFriends.GetInstance().SatisfactionModifier * 1000, "You will be able to find friends automaticaly. From email-list, addressbook, house number, name of your aunt...");
+    }
+    public void BtnTagging(){
+        ShowDescription("Tagging", FeatureTagging.GetInstance().initialCost + " / " + FeatureTagging.GetInstance().income * -1, "" + FeatureTagging.GetInstance().SatisfactionModifier * 1000, "Tag your friends on every picture you made with them. Or tag 100 friends on every picture you take by yourself ");
     }
 
     private void AddFeature(Button button, Feature feature){
@@ -146,11 +164,15 @@ public class FeatureButtons : MonoBehaviour{
         Economy.Money -= feature.initialCost;
         button.GetComponentInChildren<Text>().text = "Remove";
         Network.Features.Add(feature);
+
+        feature.Equip();
     }
     private void RemoveFeature(Button button, Feature feature){
         Economy.Money += feature.initialCost;
         button.GetComponentInChildren<Text>().text = "Add";
         Network.Features.Remove(feature);
+    
+        feature.Unequip();
     }
 
     public void ShowDescription(String title, String costs, String satisfaction, String description){

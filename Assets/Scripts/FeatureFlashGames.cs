@@ -12,7 +12,7 @@ public class FeatureFlashGames : Feature{
 
     public int initialCost { get { return 6500; }}
     public int income { get { return 100; } }
-    public float SatisfactionModifier { get { return 0.0005f; } }
+    public float SatisfactionModifier { get { return 0.005f; } }
     public void Equip(){
     }
 
