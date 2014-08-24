@@ -11,7 +11,7 @@ public class FeatureFindFriends : Feature{
     
     public int initialCost { get { return 500; } }
     public int income { get { return -15; } }
-    public float SatisfactionModifier { get { return 0.005f; } }
+    public float SatisfactionModifier { get { return 0.01f; } }
     
     
     public void Equip(){

@@ -9,7 +9,7 @@ public class FeatureTagging : Feature{
         return _instance ?? (_instance = new FeatureTagging());
     }
 
-    public int initialCost { get { return 400; } }
+    public int initialCost { get { return 800; } }
     public int income { get { return -10; } }
     public float SatisfactionModifier { get { return 0.015f; } }
     public void Equip(){

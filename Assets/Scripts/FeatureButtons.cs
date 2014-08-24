@@ -164,15 +164,17 @@ public class FeatureButtons : MonoBehaviour{
         Economy.Money -= feature.initialCost;
         button.GetComponentInChildren<Text>().text = "Remove";
         Network.Features.Add(feature);
-
         feature.Equip();
+
+        Economy.RecalcIncome();
     }
     private void RemoveFeature(Button button, Feature feature){
         Economy.Money += feature.initialCost;
         button.GetComponentInChildren<Text>().text = "Add";
         Network.Features.Remove(feature);
-    
         feature.Unequip();
+
+        Economy.RecalcIncome();
     }
 
     public void ShowDescription(String title, String costs, String satisfaction, String description){

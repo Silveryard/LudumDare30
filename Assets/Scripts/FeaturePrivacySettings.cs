@@ -13,7 +13,7 @@ public class FeaturePrivacySettings : Feature{
 
     public int initialCost { get { return 1500; } }
     public int income { get { return -10; } }
-    public float SatisfactionModifier { get { return 0.02f; } }
+    public float SatisfactionModifier { get { return 0.025f; } }
     public void Equip(){
         
     }

@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Command.cs" />
      <Compile Include="Assets\Scripts\Continent.cs" />
      <Compile Include="Assets\Scripts\Economy.cs" />
+     <Compile Include="Assets\Scripts\ExitGame.cs" />
      <Compile Include="Assets\Scripts\Feature.cs" />
      <Compile Include="Assets\Scripts\FeatureAds.cs" />
      <Compile Include="Assets\Scripts\FeatureButtons.cs" />
@@ -79,7 +80,6 @@
      <Compile Include="Assets\Scripts\ServerCostUpdater.cs" />
      <Compile Include="Assets\Scripts\ServerUpdater.cs" />
      <Compile Include="Assets\Scripts\Startup.cs" />
-     <Compile Include="Assets\Scripts\Test.cs" />
      <Compile Include="Assets\Scripts\TimeButtons.cs" />
      <Compile Include="Assets\Scripts\TimeScaleUpdater.cs" />
      <Compile Include="Assets\Scripts\TotalUserUpdater.cs" />

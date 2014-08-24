@@ -12,7 +12,7 @@ public class FeaturePhotoUpload : Feature{
 
     public int initialCost { get { return 250; } }
     public int income { get { return -30; } }
-    public float SatisfactionModifier { get { return 0.01f; } }
+    public float SatisfactionModifier { get { return 0.012f; } }
     public void Equip(){
         
     }

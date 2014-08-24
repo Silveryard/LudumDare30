@@ -22,4 +22,8 @@ public static class Network{
         }
     }
 
+    public static void CleanUpEvents(){
+        OnSatisfactionChange = null;
+    }
+
 }

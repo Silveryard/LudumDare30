@@ -5,7 +5,7 @@ using System.Collections;
 public class Startup : MonoBehaviour {
 
     protected void Awake(){
-        Network.Features = new List<Feature>();    
+        Network.Features = new List<Feature>();
     }
 
     protected void Start(){

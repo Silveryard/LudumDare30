@@ -6,6 +6,7 @@ public class AdAmountUpdater : MonoBehaviour {
 
     public void Updated(){
         FeatureAds.GetInstance().Amount = (int)GetComponent<Slider>().value;
+        Economy.RecalcIncome();
     }
 
 }

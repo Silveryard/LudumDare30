@@ -13,6 +13,11 @@ public static class Economy{
     private static int _money;
     private static int _income;
 
+    public static void CleanUpEvents(){
+        OnMoneyChange = null;
+        OnIncomeChange = null;
+    }
+
     public static int Money{
         get { return _money; }
         set{
@@ -29,5 +34,15 @@ public static class Economy{
             if (OnIncomeChange != null)
                 OnIncomeChange(value);
         }
+    }
+
+    public static void RecalcIncome(){
+        int income = 0;
+
+        foreach (Feature feature in Network.Features){
+            income += feature.income;
+        }
+
+        Income = income;
     }
 }
