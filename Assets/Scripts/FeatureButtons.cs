@@ -109,7 +109,7 @@ public class FeatureButtons : MonoBehaviour{
     }
     public void BtnToggleServerCapacity(){
         AddFeature(ButtonToggleServerCapacity, FeatureServerCapacity.GetInstance());
-        ButtonToggleServerCapacity.GetComponent<Text>().text = "Add";
+        ButtonToggleServerCapacity.GetComponentInChildren<Text>().text = "Add";
     }
     public void BtnToggleFlashGames(){
         if(Network.Features.Contains(FeatureFlashGames.GetInstance())) RemoveFeature(ButtonToggleFlashGames, FeatureFlashGames.GetInstance());

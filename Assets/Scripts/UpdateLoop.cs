@@ -1,23 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class UpdateLoop : MonoBehaviour{
 
+    public Text HighScoreText;
+
     public float WaitingTime = 10;
     private Coroutine c;
+    private bool _running;
 
     public void StartLoop(){
+        _running = true;
         c = StartCoroutine(Loop());
     }
     private IEnumerator Loop(){
-        while (true){
+        while (_running){
             GetIncome();
             PayServerCosts();
             CheckGameOver();
+            if (!_running) break;
             GenerateNewUser();
             CalcSatisfaction();
             yield return new WaitForSeconds(WaitingTime);
@@ -45,7 +52,16 @@ public class UpdateLoop : MonoBehaviour{
     }
     private void CheckGameOver(){
         if (Economy.Money <= 0 || Network.Satisfaction <= 0){
+            _running = false;
             Time.timeScale = 1;
+
+            string url = "http://silveryard.bplaced.net/LudumDare30/GetHighScore.php";
+
+            WWWForm form = new WWWForm();
+            WWW www = new WWW(url, form);
+
+            StartCoroutine(WaitForRequest(www));
+
             GetComponent<Animator>().SetTrigger("GameOver");
         }
     }
@@ -101,4 +117,12 @@ public class UpdateLoop : MonoBehaviour{
         Network.Satisfaction =  newSatisfaction;
     }
 
+    private IEnumerator WaitForRequest(WWW www){
+        yield return www;
+
+        if (www.error == null)
+            HighScoreText.text = www.text.Replace("<br>", System.Environment.NewLine);
+        else
+            HighScoreText.text = www.error;
+    }
 }
