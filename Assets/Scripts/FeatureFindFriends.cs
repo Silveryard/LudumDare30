@@ -9,7 +9,7 @@ public class FeatureFindFriends : Feature{
         return _instance ?? (_instance = new FeatureFindFriends());
     }
     
-    public int initialCost { get { return 800; } }
+    public int initialCost { get { return 700; } }
     public int income { get { return -15; } }
     public float SatisfactionModifier { get { return 0.01f; } }
     

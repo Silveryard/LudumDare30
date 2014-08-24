@@ -138,7 +138,7 @@ public class FeatureButtons : MonoBehaviour{
         else AddFeature(ButtonToggleComments, FeatureComments.GetInstance());
     }
     public void BtnToggleAdvancedSecurity(){
-        if(Network.Features.Contains(FeatureComments.GetInstance()))RemoveFeature(ButtonToggleAdvancedSecurity, FeatureAdvancedSecurity.GetInstance());
+        if(Network.Features.Contains(FeatureAdvancedSecurity.GetInstance()))RemoveFeature(ButtonToggleAdvancedSecurity, FeatureAdvancedSecurity.GetInstance());
         else AddFeature(ButtonToggleAdvancedSecurity, FeatureAdvancedSecurity.GetInstance());
     }
     public void BtnToggleAPI(){

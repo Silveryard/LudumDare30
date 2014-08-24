@@ -10,7 +10,7 @@ public class FeatureComments : Feature{
         return _instance ?? (_instance = new FeatureComments());
     }
     
-    public int initialCost { get { return 1000; } }
+    public int initialCost { get { return 750; } }
     public int income { get { return -20; } }
     public float SatisfactionModifier { get { return 0.012f; } }
     
