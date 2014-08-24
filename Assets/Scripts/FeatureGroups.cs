@@ -10,9 +10,9 @@ public class FeatureGroups : Feature{
         return _instance ?? (_instance = new FeatureGroups());
     }
 
-    public int initialCost { get { return 70; } }
-    public int income { get { return -30; } }
-    public float SatisfactionModifier { get { return 0.008f; } }
+    public int initialCost { get { return 900; } }
+    public int income { get { return -20; } }
+    public float SatisfactionModifier { get { return 0.01f; } }
     public void Equip(){
     }
 

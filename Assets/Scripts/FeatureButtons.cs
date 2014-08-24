@@ -22,6 +22,11 @@ public class FeatureButtons : MonoBehaviour{
     public Button ButtonToggleFlashGames;
     public Button ButtonToggleFindFriends;
     public Button ButtonToggleTagging;
+    public Button ButtonToggleComments;
+    public Button ButtonToggleAdvancedSecurity;
+    public Button ButtonToggleAPI;
+    public Button ButtonToggleNews;
+    public Button ButtonToggleEmbeddedVideos;
 
     public Button ButtonAds;
     public Button ButtonChat;
@@ -34,6 +39,11 @@ public class FeatureButtons : MonoBehaviour{
     public Button ButtonFlashGames;
     public Button ButtonFindFriends;
     public Button ButtonTagging;
+    public Button ButtonComments;
+    public Button ButtonAdvancedSecurity;
+    public Button ButtonAPI;
+    public Button ButtonNews;
+    public Button ButtonEmbeddedVideos;
 
     private float _oldTimeScale;
 
@@ -123,6 +133,26 @@ public class FeatureButtons : MonoBehaviour{
         if(Network.Features.Contains(FeatureTagging.GetInstance()))RemoveFeature(ButtonToggleTagging, FeatureTagging.GetInstance());
         else AddFeature(ButtonToggleTagging, FeatureTagging.GetInstance());
     }
+    public void BtnToggleComments(){
+        if(Network.Features.Contains(FeatureComments.GetInstance()))RemoveFeature(ButtonToggleComments, FeatureComments.GetInstance());
+        else AddFeature(ButtonToggleComments, FeatureComments.GetInstance());
+    }
+    public void BtnToggleAdvancedSecurity(){
+        if(Network.Features.Contains(FeatureComments.GetInstance()))RemoveFeature(ButtonToggleAdvancedSecurity, FeatureAdvancedSecurity.GetInstance());
+        else AddFeature(ButtonToggleAdvancedSecurity, FeatureAdvancedSecurity.GetInstance());
+    }
+    public void BtnToggleAPI(){
+        if(Network.Features.Contains(FeatureAPI.GetInstance()))RemoveFeature(ButtonToggleAPI, FeatureAPI.GetInstance());
+        else AddFeature(ButtonToggleAPI, FeatureAPI.GetInstance());
+    }
+    public void BtnToggleNews(){
+        if(Network.Features.Contains(FeatureNews.GetInstance()))RemoveFeature(ButtonToggleNews, FeatureNews.GetInstance());
+        else AddFeature(ButtonToggleNews, FeatureNews.GetInstance());
+    }
+    public void BtnToggleEmbeddedVideos(){
+        if(Network.Features.Contains(FeatureEmbeddedVideos.GetInstance()))RemoveFeature(ButtonToggleEmbeddedVideos, FeatureEmbeddedVideos.GetInstance());
+        else AddFeature(ButtonToggleEmbeddedVideos, FeatureEmbeddedVideos.GetInstance());
+    }
 
     public void BtnAds(){
         ShowDescription("Ads", "0 / 0 to -500", "0 to -20", "Let´s place some nice Ads on your website. Your users might not love it but you need the money. Just don´t exaggerate.");
@@ -156,6 +186,21 @@ public class FeatureButtons : MonoBehaviour{
     }
     public void BtnTagging(){
         ShowDescription("Tagging", FeatureTagging.GetInstance().initialCost + " / " + FeatureTagging.GetInstance().income * -1, "" + FeatureTagging.GetInstance().SatisfactionModifier * 1000, "Tag your friends on every picture you made with them. Or tag 100 friends on every picture you take by yourself ");
+    }
+    public void BtnComments(){
+        ShowDescription("Comments", FeatureComments.GetInstance().initialCost + " / " + FeatureComments.GetInstance().income * -1, "" + FeatureComments.GetInstance().SatisfactionModifier * 1000, "How lame is it just so see what your friends are doing? Now you´re able to comment the shit out of their ass. Welcome cyber mobbing");
+    }
+    public void BtnAdvancedSecurity(){
+        ShowDescription("Advanced Security", FeatureAdvancedSecurity.GetInstance().initialCost + " / " + FeatureAdvancedSecurity.GetInstance().income * -1, "" + FeatureAdvancedSecurity.GetInstance().SatisfactionModifier * 1000, "What?! Some hackers made your side full pink?? Yeah now it´s time for some security don´t you think?");
+    }
+    public void BtnAPI(){
+        ShowDescription("API", FeatureAPI.GetInstance().initialCost + " / " + FeatureAPI.GetInstance().income * -1, "" + FeatureAPI.GetInstance().SatisfactionModifier * 1000, "Always need to connect to facebook if anything happend you´d like to post? Here are some API´s for Browsers, Applications, Games...");
+    }
+    public void BtnNews(){
+        ShowDescription("News", FeatureNews.GetInstance().initialCost + " / " + FeatureNews.GetInstance().income * -1, "" + FeatureNews.GetInstance().SatisfactionModifier * 1000, "What do users do after waking up? They´ll check your network. Combine nice and usefull and present them some nice manipulated news :)");
+    }
+    public void BtnEmbeddedVideos(){
+        ShowDescription("Embedded Videos", FeatureEmbeddedVideos.GetInstance().initialCost + " / " + FeatureEmbeddedVideos.GetInstance().income * -1, "" + FeatureEmbeddedVideos.GetInstance().SatisfactionModifier * 1000, "There´s a platform that allows user to upload cat videos? Lets include them in our network the internet needs videos about cats!");
     }
 
     private void AddFeature(Button button, Feature feature){

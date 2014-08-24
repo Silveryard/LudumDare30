@@ -20,6 +20,7 @@ public class Clickable : MonoBehaviour{
     }
 
     protected void OnMouseDown(){
+        if (OnClickCommand == null) return;
         OnClickCommand.Do(GetComponent<Continent>());
     }
 	

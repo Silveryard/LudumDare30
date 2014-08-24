@@ -10,7 +10,7 @@ public class FeaturePhotoUpload : Feature{
         return _instance ?? (_instance = new FeaturePhotoUpload());
     }
 
-    public int initialCost { get { return 250; } }
+    public int initialCost { get { return 750; } }
     public int income { get { return -30; } }
     public float SatisfactionModifier { get { return 0.012f; } }
     public void Equip(){

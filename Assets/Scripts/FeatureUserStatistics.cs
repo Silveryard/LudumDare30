@@ -10,7 +10,7 @@ public class FeatureUserStatistics : Feature{
         return _instance ?? (_instance = new FeatureUserStatistics());
     }
 
-    public int initialCost { get { return 100; } }
+    public int initialCost { get { return 500; } }
     public int income { get { return 200; } }
     public float SatisfactionModifier { get { return -0.03f; } }
     

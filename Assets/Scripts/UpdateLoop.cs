@@ -51,7 +51,7 @@ public class UpdateLoop : MonoBehaviour{
         }
     }
     private void CheckGameOver(){
-        if (Economy.Money <= 0 || Network.Satisfaction <= 0){
+        if (Economy.Money <= 0 || ((int)Network.Satisfaction) <= 0){
             _running = false;
             Time.timeScale = 1;
 
@@ -87,6 +87,9 @@ public class UpdateLoop : MonoBehaviour{
 
             if (continents[i].Users > continents[i].Servers*Server.Capacity)
                 continents[i].Users = continents[i].Servers*Server.Capacity;
+
+            if (continents[i].Users < 0)
+                continents[i].Users = 0;
         }
     }
     private void CalcSatisfaction(){

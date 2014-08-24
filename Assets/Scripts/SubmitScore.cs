@@ -8,9 +8,18 @@ public class SubmitScore : MonoBehaviour{
     public Text HighScoreText;
     public InputField UserInput;
     public Text Users;
+    public Button SubmitButton;
     public Text SubitText;
 
     public void SubmitHighScore(){
+
+        if (UserInput.value.Equals("") || UserInput.value.Equals("name")){
+            SubitText.text = "Type in name!";
+            return;
+        }
+
+        SubmitButton.interactable = false;
+
         string url = "http://silveryard.bplaced.net/LudumDare30/AddHighScore.php";
         string url2 = "http://silveryard.bplaced.net/LudumDare30/GetHighScore.php";
 
@@ -19,8 +28,7 @@ public class SubmitScore : MonoBehaviour{
         form.AddField("Score", Users.text);
         WWW www = new WWW(url, form);
 
-        WWWForm form2 = new WWWForm();
-        WWW www2 = new WWW(url2, form2);
+        WWW www2 = new WWW(url2);
 
         StartCoroutine(WaitForRequest(www, www2));
     }

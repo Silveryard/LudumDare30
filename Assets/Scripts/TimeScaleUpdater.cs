@@ -8,7 +8,7 @@ public class TimeScaleUpdater : MonoBehaviour{
     public Button Play;
 
     public void TimeScaleUpdated(float f){
-        GetComponent<Text>().text = "" + f.ToString("##.000") + "x";
+        GetComponent<Text>().text = "" + f.ToString("0.000") + "x";
 
         Time.timeScale = f;
 
